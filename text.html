@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        #start{
+            left: 25%;
+        }
+        #settings{
+            left: 55%;
+        }
+        .option{    
+            position: absolute;
+            top: 40%;
+            margin: 0 2% 0 0;
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: rgb(0, 0, 0);
+            background-color: rgb(138, 14, 14);
+            border: 3px, solid, black;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+        .option:active {
+            background-color: rgba(138, 14, 14, 0.46);
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    	body{
+		    background:black;
+	    }
+    	#container{
+            background:linear-gradient(rgb(2, 2, 87), blue, green, green);
+            width:1000px;
+            height:500px;
+        }
+        #selectionCon{
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            top: 10%;
+            left: 11.5%;
+        }
+        #selection{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        #mark{
+            width:55px;
+            height:135px;
+            position:absolute;
+        }
+        #grate{
+            width:155px;
+            height:60px;
+            bottom:25%;
+            left:10%;
+            position:absolute;
+        }
+        #city{
+            margin: 13% 0 0 0;
+            width:1000px;
+        }
+        #hero{
+            height: 100%;
+            width: 100%
+        }
+        #phase{
+            height: 100%;
+            width: 100%
+        }
+        #moon{
+            width:75px;
+            height:75px;
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id ='container'>
+        <img id='city' src="background/download-1.png">
+
+        <div id='selectionCon'>
+
+                <img id='selection' src="selection/slection-1.png">
+
+                <button id = "start" class = "option">START</button>
+                <button id = 'settings' class = "option">settings</button>
+                
+
+                
+        </div>
+
+        <div id='mark' style='top:100px; left:400px;'>
+            <img id= 'hero' src="mark/loading/standstill-1.png">
+        </div>
+        <img id = 'grate' src="selection/grate.png">
+        <div id ='moon'>
+            <img id='phase' src="moonlight/moon/cresent-1.png">    
+        </div>
+    </div>
+    <script>
+        var mark = {
+            x: 50,
+            y: 350
+        }
+        function displayMark(){
+            document.getElementById('mark').style['top']=mark.y+'px';
+            document.getElementById('mark').style['left']=mark.x+'px';
+        }
+        var moon = {
+            x: 850,
+            y: 50
+        }
+        function displayMoon(){
+            document.getElementById('moon').style['top']=moon.y+'px';
+            document.getElementById('moon').style['left']=moon.x+'px';
+        }
+
+        
+
+        function gameloop(){
+            displayMark()
+            displayMoon()
+        } setInterval(gameloop, 20);
+
+        function stall(){
+            var back = document.getElementById('city').src
+            if (back == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/background/download-1.png"){
+                document.getElementById('city').src  = "background/download-2.png"
+            }
+            else if (back == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/background/download-2.png"){
+                document.getElementById('city').src  = "background/download-1.png"
+            }
+
+
+            var img = document.getElementById('hero').src
+                if(img == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/mark/loading/standstill-1.png"){
+                    document.getElementById('hero').src = "mark/loading/standstill-2.png";
+                }
+                else if(document.getElementById('hero').src == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/mark/loading/standstill-2.png"){
+                    document.getElementById('hero').src="mark/loading/standstill-1.png";
+                }
+            var moon = document.getElementById('phase').src
+                if(moon == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/moonlight/moon/cresent-1.png"){
+                    document.getElementById('phase').src= "moonlight/moon/cresent-2.png"
+                }
+                else if(moon == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/moonlight/moon/cresent-2.png"){
+                    document.getElementById('phase').src="moonlight/moon/cresent-3.png"
+                }
+                else if(moon == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/moonlight/moon/cresent-3.png"){
+                    document.getElementById('phase').src="moonlight/moon/cresent-1.png"
+                }
+        } setInterval(stall, 1000);
+    </script>
+</body>
+</html>
