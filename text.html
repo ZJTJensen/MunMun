@@ -39,7 +39,7 @@
 		    background:black;
 	    }
     	#container{
-            background:linear-gradient(rgb(2, 2, 87), blue, green, green);
+            background:linear-gradient(rgb(2, 2, 87), blue, rgb(1, 94, 1), green);
             width:1000px;
             height:500px;
         }
@@ -128,11 +128,12 @@
         }
 
         
-
+        var gameLoop = true;
         function gameloop(){
             displayMark()
             displayMoon()
         } setInterval(gameloop, 20);
+
 
         function stall(){
             var back = document.getElementById('city').src
@@ -142,8 +143,6 @@
             else if (back == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/background/download-2.png"){
                 document.getElementById('city').src  = "background/download-1.png"
             }
-
-
             var img = document.getElementById('hero').src
                 if(img == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/mark/loading/standstill-1.png"){
                     document.getElementById('hero').src = "mark/loading/standstill-2.png";
@@ -161,7 +160,43 @@
                 else if(moon == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/moonlight/moon/cresent-3.png"){
                     document.getElementById('phase').src="moonlight/moon/cresent-1.png"
                 }
-        } setInterval(stall, 1000);
+        } 
+        if (gameLoop == true){
+            setInterval(stall, 1000);
+        }
+
+
+            var click = document.getElementById('start');
+    
+            click.onclick= function clickEffect(event){
+                    gameLoop = false;
+                    document.getElementById('selectionCon').style ='display: none;'
+                    
+                
+                function animation(){
+                    var marky = document.getElementById('hero').src
+                    if(marky == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/mark/loading/standstill-2.png"){
+                        document.getElementById('hero').src="mark/loading/standstill-1.png";
+                    }
+                    else if(marky == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/mark/loading/standstill-1.png"){
+                        document.getElementById('phase').src="moonlight/moon/full.png"
+                        document.getElementById('hero').src="mark/movement/step-1.png";
+                        document.getElementById('mark').style['width']= "64px";
+                        mark.x += 40;
+                        mark.y -= 40;
+                    }
+                    else if(marky == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/mark/movement/step-1.png"){
+                        document.getElementById('phase').src="moonlight/moon/full.png"
+                        document.getElementById('hero').src="mark/movement/idle-1.png";
+                        document.getElementById('mark').style['width']= "50px";
+                        mark.x += 40;
+                        mark.y += 40;
+                    }
+                } setInterval(animation, 500);
+
+            }
+
+        
     </script>
 </body>
 </html>
