@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="moonmoon.js"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
@@ -32,70 +33,5 @@
         </div>
     </div>
     
-    <script>
-        var mark = {
-            x: 50,
-            y: 350
-        }
-        function displayMark(){
-            document.getElementById('mark').style['top']=mark.y+'px';
-            document.getElementById('mark').style['left']=mark.x+'px';
-        }
-        function gameloop(){
-            displayMark()
-        } setInterval(gameloop, 20);
-
-        document.onkeydown= function(e){
-            if(e.keyCode==37){
-				mark.x-=10;
-                char = document.getElementById('hero').src
-                if(char == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/mark/loading/standstill-1.png"){
-                document.getElementById('hero').src="mark/movement/step-1.png";
-                document.getElementById('mark').style['width']= "64px";
-                }
-                else{
-                    document.getElementById('hero').src="mark/loading/standstill-1.png";
-                    document.getElementById('mark').style['width']= "50px";
-                }
-				if(mark.x<=0){
-					mark.x+=10;
-				}
-			}
-			else if(e.keyCode==39){
-				mark.x+=10;
-                char = document.getElementById('hero').src
-                if(char == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/mark/loading/standstill-1.png"){
-                document.getElementById('hero').src="mark/movement/step-1.png";
-                document.getElementById('mark').style['width']= "64px";
-                }
-                else{
-                    document.getElementById('hero').src="mark/loading/standstill-1.png";
-                    document.getElementById('mark').style['width']= "50px";
-                }
-                if(mark.x>=1000){
-					mark.x-=10;
-                    
-				}
-			}
-			if(e.keyCode==38){
-				mark.y-=10;
-                
-				if(mark.y<=0){
-					mark.y+=10;
-				}
-			}
-			else if(e.keyCode==40){
-				
-			}
-            else if(e.keyCode==32){
-                function punch(){
-                
-                document.getElementById('hero').src="mark/movement/punch-1.png";
-                
-                }setInterval(punch, 20);
-				
-			}
-        }
-    </script>
 </body>
 </html>
