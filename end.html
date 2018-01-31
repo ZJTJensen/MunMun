@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+          #start{
+            left: 25%;
+        }
+        #quit{
+            left: 40%;
+        }
+        .option{
+            position: absolute;    
+            top: 20%;
+            margin: 0% 0% 0 0%;
+            display: none;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: rgb(0, 0, 0);
+            background-color: rgb(138, 14, 14);
+            border: 3px, solid, black;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        }
+    body{
+        background:black;
+        }
+        #container{
+            background: gray;
+            width:1000px;
+            height:500px;
+        }
+        #mark{
+            width:122px;
+            height:300px;
+            position:absolute;
+            padding: 100px 0 0 0;
+        }
+        #hero{
+            height: 100%;
+            width: 100%
+        }
+        
+        @keyframes animatedBackground {
+            from { background-position: 0 0; }
+            to { background-position: 100% 0; }
+        }
+        #sewer-water{
+            width:1000px;
+            height:100px;
+            background: url(background/sewer-water.png);
+            margin: 460px 0 0 0 ;
+            position:absolute;
+            background-repeat: repeat-x;
+            animation: animatedBackground 40s linear infinite;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+      
+    
+
+        function transform(){
+        document.getElementById('hero').src="mark/transformation/transformation-1.png";
+        document.getElementById('mark').style['width']= "122px";
+        }setTimeout(transform, 1000 );
+    
+            
+        function transformation2(){
+            document.getElementById('hero').src="mark/transformation/transformation-2.png";
+            document.getElementById('mark').style['width']= "122px";
+            }setTimeout(transformation2, 2000 );
+            
+        function transformation3(){
+            document.getElementById('hero').src="mark/transformation/transformation-3.png";
+            document.getElementById('mark').style['width']= "222px";
+            document.getElementById('mark').style['margin']= "0px 0px 0 0px";
+        }setTimeout(transformation3, 3000 );
+
+            function Mock(){
+                if(document.getElementById('hero').src == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/mark/transformation/transformation-4.png"){
+                document.getElementById('hero').src="mark/transformation/transformation-3.png";
+                document.getElementById('mark').style['width']= "222px";
+                document.getElementById('mark').style['margin']= "0px 0px 0 0px";
+                }
+                else if(document.getElementById('hero').src == "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/mark/transformation/transformation-3.png"){
+                document.getElementById('hero').src="mark/transformation/transformation-4.png";
+                document.getElementById('mark').style['width']= "222px";
+                document.getElementById('mark').style['margin']= "0px 0px 0 0px";
+                document.getElementById('start').style['display']= "inline-block";
+                document.getElementById('quit').style['display']= "inline-block";    
+            }
+        }setInterval(Mock, 500)
+
+       
+   
+    
+    
+    </script>
+    <div id = "container">
+            <button id = "start" class = "option">Re-Start</button>
+            <button id = "quit" class = "option"> -Quit- </button>
+            <script>
+                 var click = document.getElementById('start');
+                click.onclick= function clickEffect(event){
+                    console.log(event);
+                    window.location= "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/game-1.html";
+                } 
+                var quit = document.getElementById('quit');
+                quit.onclick= function clickEffect(event){
+                    console.log(event);
+                    window.location= "file:///C:/Users/Zach/Desktop/personal/Mun/cahr/text.html";
+                } 
+             </script>
+        <div id='mark' style='top:100px; left:400px;'>
+            <img id= 'hero' src="mark/loading/standstill-1.png">
+        </div>
+        <div id="sewer-water"> </div>
+        <div id ="sewer-level-1">
+        </div>
+    </div>  
+</body>
+</html>

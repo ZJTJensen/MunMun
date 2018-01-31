@@ -3,34 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="moonmoon.js"></script>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <style>
-    body{
+        body{
+            
         background:black;
-    }
-    #container{
-        background: green;
-        width:1000px;
-        height:500px;
-    }
-    #mark{
-        width:55px;
-        height:135px;
-        position:absolute;
-    }
-    #hero{
-        height: 100%;
-        width: 100%
-    }
+        }
+        #container{
+            background: gray;
+            width:1000px;
+            height:500px;
+            overflow: hidden;
+        }
+        #mark{
+            width:55px;
+            height:135px;
+            position:absolute;
+        }
+        #hero{
+            height: 100%;
+            width: 100%
+        }
+        
+        @keyframes animatedBackground {
+            from { background-position: 0 0; }
+            to { background-position: 100% 0; }
+        }
+        #sewer-water{
+            width:1000px;
+            height:45px;
+            background: url(background/sewer-water.png);
+            margin: 460px 0 0 0 ;
+            position:absolute;
+            background-repeat: repeat-x;
+            animation: animatedBackground 40s linear infinite;
+            z-index: 1;
+        }
+        #moonlight{
+            background: rgba(240, 240, 170, 0.542);
+            width: 40px;
+            height: 500px;
+            position: absolute;
+            z-index: 2;
+        }
+
+        #platform{
+            position: absolute;
+            width: 200px;
+            height: 80px;
+            padding-top: 400px;
+            left: -200px; 
+        }
+
+        #platform2{
+            position: absolute;
+            width: 200px;
+            height: 80px;
+            padding-top: 400px;
+            left: 800px; 
+        }
+
+        #stick{
+            position: absolute;
+            width: 50px;
+            height: 200px;
+            padding-top: 300px;
+            left: 600px; 
+            /* z-index: 100; */
+        }
+        /* #animate-area	{ 
+            width: 560px; 
+            height: 400px; 
+            background-image: url(background/sewer-water.png);
+            background-position: 0px 0px;
+            background-repeat: repeat-x;
+
+            animation: animatedBackground 40s linear infinite;
+        } */
     </style>
 </head>
 <body>
+    <script id = "movement" src="moonmoon.js"></script>
+
+    <script src="sewerRules.js"></script>
     <div id='container'>
         <div id='mark' style='top:100px; left:400px;'>
             <img id= 'hero' src="mark/loading/standstill-1.png">
         </div>
+        <div id="moonlight"></div>
+            <!-- <img id="sewer-water"src="background/sewer-water.png" alt=""> -->
+
+        <div id="sewer-water"> </div>
+        <div id ="sewer-level-1">
+        </div>
+
+
+        <div id="moving">
+        <img src="background/platform.png" id = "platform">
+        <img src="background/stick.png" id = "stick">
+        <img src="background/platform.png" id = "platform2">
+        </div>
+
+
+        
     </div>
     
 </body>
